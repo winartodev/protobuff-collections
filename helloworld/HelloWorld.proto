@@ -1,0 +1,17 @@
+syntax="proto3";
+
+option go_package = "github.com/winartodev/protobuff-collections/helloworld";
+
+package helloworld;
+
+service HelloWorld {
+    rpc SayHelloWorld(HelloWorldRequest) returns (HelloWorldResponse) {};
+}
+
+message HelloWorldRequest {
+    string name = 1;
+}
+
+message HelloWorldResponse {
+    string name = 1;
+}
