@@ -1,0 +1,63 @@
+syntax="proto3";
+
+option go_package = "github.com/winartodev/protobuff-collections/todolist";
+
+package todolist;
+
+service Todo {
+    rpc CreateTask(CreateTaskRequest) returns (CreateTaskResponse) {};
+    rpc GetTaskByID (GetTaskByIDRequest) returns (GetTaskByIDResponse) {};
+    rpc GetListTask (GetListOfTaskRequest) returns (ListOfTasksResponse) {}
+    rpc UpdateTask(UpdateTaskRequest) returns (UpdateTaskResponse) {};
+    rpc DeleteTask(DeleteTaskRequest) returns (DeleteTaskResponse) {};
+}
+
+message Task {
+    int64 id = 1;
+    string description = 2;
+    bool completed = 3;
+    int64 createdAt = 4;
+    int64 updatedAt = 5;
+}
+
+message CreateTaskRequest {
+    Task task = 1;
+}
+
+message GetTaskByIDRequest {
+    int64 id = 1;
+}
+
+message GetListOfTaskRequest {
+
+}
+
+message UpdateTaskRequest {
+    int64 id = 1;
+    bool completed = 2;
+    string description = 3;
+}
+
+message DeleteTaskRequest {
+    int64 id = 1;
+}
+
+message CreateTaskResponse {
+    Task task = 1;
+}
+
+message GetTaskByIDResponse {
+    Task task = 1;
+}
+
+message UpdateTaskResponse {
+    Task task = 1;
+}
+
+message DeleteTaskResponse {
+
+}
+
+message ListOfTasksResponse {
+    repeated Task task = 1;
+}
